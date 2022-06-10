@@ -1,0 +1,10 @@
+.square{
+    width: fit-content;
+    padding: 10px;
+    margin: 10px;
+    outline: black solid 1px;
+}
+
+#emoji_input{
+    width: 30px;
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="square">
+        <label for="text">Caracter a insertar:</label>
+        <input id="emoji_input" type="text">
+        <button id="push">Push</button>
+        <button id="unshift">Unshift</button>
+        <button id="insert_at">Insert at</button>
+        <input type="number" id="insert_value" value="0" min="0">
+    </div>
+    <div class="square">
+        <button id="pop">Pop</button>
+        <button id="shift">Shift</button>
+        <button id="remove_at">Remove at</button>
+        <input type="number" id="remove_at_value" value="0" min="0">
+    </div>
+    <div>
+        <p>
+            Array resultante:
+        </p>
+        <p id="array">[ ]</p>
+    </div>
+    <script src="./jquery-3.6.0.min.js"></script>
+    <script src="./code.js"></script>
+</body>
+</html>
