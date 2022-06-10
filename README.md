@@ -1,7 +1,8 @@
 # Ejercicios
 
-[Ejercicio 15](#ejercicio-15)
-[Ejercicio 16](#ejercicio-16)
+- [Ejercicio 15](#ejercicio-15)
+
+- [Ejercicio 16](#ejercicio-16)
 
 ## Ejercicio 15
 
