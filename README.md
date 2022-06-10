@@ -8,6 +8,8 @@
 
 - [Ejercicio 18](#ejercicio-18)
 
+- [Ejercicio 19](#ejercicio-19)
+
 ## Ejercicio 15
 
 ### Enunciado
@@ -449,3 +451,47 @@ $('#tijeras').mouseup(function () {
 ![image](https://user-images.githubusercontent.com/14235896/173029009-05fde3cd-d02c-4d06-b3ed-d4a38c145c65.png)
 ![image](https://user-images.githubusercontent.com/14235896/173029092-c7cc1677-b647-4a7a-8eae-ef86da69884d.png)
 
+## Ejercicio 19
+
+### Enunciado
+
+![image](https://user-images.githubusercontent.com/14235896/173037721-49c44f57-892e-4f0b-a8a0-15f47b462a61.png)
+
+### HTML
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <img src="https://github.com/DavidBernalGonzalez/EjerciciosJQuery/blob/main/Ejercicio%20carta/card-back.png?raw=true" alt="">
+    <img src="https://github.com/DavidBernalGonzalez/EjerciciosJQuery/blob/main/Ejercicio%20carta/card-back.png?raw=true" alt="">
+    <script src="./jquery-3.6.0.min.js"></script>
+    <script src="./code.js"></script>
+</body>
+</html>
+```
+
+### JS
+
+```js
+
+$('img').mouseenter(function () { 
+    $(this).attr('src', 'https://github.com/DavidBernalGonzalez/EjerciciosJQuery/blob/main/Ejercicio%20carta/card-front.png?raw=true');
+});
+$('img').mouseleave(function () { 
+    $(this).attr('src', 'https://github.com/DavidBernalGonzalez/EjerciciosJQuery/blob/main/Ejercicio%20carta/card-back.png?raw=true');
+});
+```
+
+### Resultado
+
+![image](https://user-images.githubusercontent.com/14235896/173038044-b4fe34b1-c72b-499e-ba6f-96e9955e5e4b.png)
+![image](https://user-images.githubusercontent.com/14235896/173038071-2c289567-ab55-4317-9611-db0bfd0c1c6d.png)
+![image](https://user-images.githubusercontent.com/14235896/173038110-99b1a935-1c83-4df9-b721-e766b0bcad29.png)
