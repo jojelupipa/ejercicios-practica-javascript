@@ -4,6 +4,8 @@
 
 - [Ejercicio 16](#ejercicio-16)
 
+- [Ejercicio 17](#ejercicio-17)
+
 ## Ejercicio 15
 
 ### Enunciado
@@ -252,4 +254,58 @@ function update_array(){
 ![image](https://user-images.githubusercontent.com/14235896/173011242-c47e3dfc-2244-4fee-9f98-f0b3bb48bcc5.png)
 ![image](https://user-images.githubusercontent.com/14235896/173011359-93ea3efc-e9fc-4977-907d-aab2ecf57fd1.png)
 ![image](https://user-images.githubusercontent.com/14235896/173011424-6ed7bfdb-229b-42d2-8303-57c8eb6fa87e.png)
+
+
+## Ejercicio 17
+
+### Enunciado
+
+![image](https://user-images.githubusercontent.com/14235896/173013099-7d9870bd-7906-4b39-bba2-82886c08e372.png)
+
+
+### HTML
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <p id="texto">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, maiores. Sunt, dicta natus! Perspiciatis eveniet voluptas consectetur, voluptatum odio asperiores quas non facere animi illum dolor dolore quia autem eos.
+        Voluptates velit fugiat, quas quam alias consequuntur inventore voluptatem facere sapiente eligendi nihil minus sunt quasi deserunt ipsum, esse veritatis expedita eaque fugit repellendus accusamus dolorem. Sapiente esse assumenda aperiam.
+        Delectus libero obcaecati aperiam eum eos quos numquam similique laboriosam voluptatem iste repellat, nisi tempora nulla dolorem assumenda aut illum molestiae consequuntur deserunt nobis veniam natus minus suscipit. Vitae, atque.
+    </p>
+    <button id="azul">Azulificador</button>
+    <button id="rojo">Rojificador</button>
+    <script src="./jquery-3.6.0.min.js"></script>
+    <script src="./code.js"></script>
+</body>
+</html>
+```
+
+### JS
+
+```js
+
+// Button callback definition
+$('#azul').mouseup(function () { 
+    $('#texto').css('color', 'blue');;
+});
+
+$('#rojo').mouseup(function () { 
+    $('#texto').css('color', 'red');;
+});
+```
+
+### Resultado
+
+![image](https://user-images.githubusercontent.com/14235896/173013409-52815b7e-0f39-4351-8d12-c0ee519d67a5.png)
+![image](https://user-images.githubusercontent.com/14235896/173013462-13bb658b-71fa-44c9-b012-7747e33cc583.png)
+![image](https://user-images.githubusercontent.com/14235896/173013489-fd0853c7-9282-4a79-a94f-90481e02f4a2.png)
 
