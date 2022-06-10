@@ -10,6 +10,8 @@
 
 - [Ejercicio 19](#ejercicio-19)
 
+- [Ejercicio 20](#ejercicio-20)
+
 ## Ejercicio 15
 
 ### Enunciado
@@ -495,3 +497,67 @@ $('img').mouseleave(function () {
 ![image](https://user-images.githubusercontent.com/14235896/173038044-b4fe34b1-c72b-499e-ba6f-96e9955e5e4b.png)
 ![image](https://user-images.githubusercontent.com/14235896/173038071-2c289567-ab55-4317-9611-db0bfd0c1c6d.png)
 ![image](https://user-images.githubusercontent.com/14235896/173038110-99b1a935-1c83-4df9-b721-e766b0bcad29.png)
+
+## Ejercicio 20
+
+### Enunciado
+
+![image](https://user-images.githubusercontent.com/14235896/173041884-a3f7ca05-d29d-4729-b40c-aba3bfb67806.png)
+
+### HTML
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <img id="button" src="https://github.com/DavidBernalGonzalez/EjerciciosJQuery/blob/main/Ejercicio%20bombilla/boff.jpg?raw=true" alt="">
+    <img id="bulb" src="https://github.com/DavidBernalGonzalez/EjerciciosJQuery/blob/main/Ejercicio%20bombilla/off.jpg?raw=true" alt="">
+    <script src="./jquery-3.6.0.min.js"></script>
+    <script src="./code.js"></script>
+</body>
+</html>
+```
+
+### CSS
+
+```css
+body{
+    display: flex;
+    flex-direction: column;
+}
+img{
+    width: 20vh;
+}
+```
+
+### JS
+
+```js
+let bulb_status = 'off'
+
+$('#button').mousedown(function () { 
+    if (bulb_status === 'off') {
+        $(this).attr('src', 'https://github.com/DavidBernalGonzalez/EjerciciosJQuery/blob/main/Ejercicio%20bombilla/bon.jpg?raw=true');
+        $('#bulb').attr('src', 'https://github.com/DavidBernalGonzalez/EjerciciosJQuery/blob/main/Ejercicio%20bombilla/on.jpg?raw=true');
+        bulb_status= 'on'
+    } else {
+        $(this).attr('src', 'https://github.com/DavidBernalGonzalez/EjerciciosJQuery/blob/main/Ejercicio%20bombilla/boff.jpg?raw=true');
+        $('#bulb').attr('src', 'https://github.com/DavidBernalGonzalez/EjerciciosJQuery/blob/main/Ejercicio%20bombilla/off.jpg?raw=true');
+        bulb_status= 'off'
+    }
+    
+});
+
+```
+
+### Resultado
+
+![image](https://user-images.githubusercontent.com/14235896/173042167-aff99a9c-aaf4-45eb-9187-1c1bb12b994f.png)
+![image](https://user-images.githubusercontent.com/14235896/173042223-651c3553-a82e-4ea9-81ab-6c800716b0a4.png)
