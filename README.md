@@ -6,6 +6,8 @@
 
 - [Ejercicio 17](#ejercicio-17)
 
+- [Ejercicio 18](#ejercicio-18)
+
 ## Ejercicio 15
 
 ### Enunciado
@@ -308,4 +310,142 @@ $('#rojo').mouseup(function () {
 ![image](https://user-images.githubusercontent.com/14235896/173013409-52815b7e-0f39-4351-8d12-c0ee519d67a5.png)
 ![image](https://user-images.githubusercontent.com/14235896/173013462-13bb658b-71fa-44c9-b012-7747e33cc583.png)
 ![image](https://user-images.githubusercontent.com/14235896/173013489-fd0853c7-9282-4a79-a94f-90481e02f4a2.png)
+
+## Ejercicio 18
+
+### Enunciado
+
+![image](https://user-images.githubusercontent.com/14235896/173028275-b246991e-46df-4682-8532-7f74b4ceb0b9.png)
+
+### HTML
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <p id="texto">
+        Bien seas venido al juego de piedra, papel o tijera. Elije 
+        aleatoriamente y procura ganar. <br>
+    </p>
+    <button id="piedra">Piedra ⚫ </button>
+    <button id="papel">Papel 📰</button>
+    <button id="tijeras">Tijeras ✂️</button>
+    <script src="./jquery-3.6.0.min.js"></script>
+    <script src="./code.js"></script>
+</body>
+</html>
+```
+
+### JS
+
+```js
+let user_wins = 0;
+let computer_wims = 0;
+const max_wins = 3;
+let log = document.getElementById('texto')
+
+// Main gameplay func
+function main(input) {
+    let computer = Math.round(Math.random()*2)
+    log.innerHTML += '🃏 player1: ' + convert_to_emoji(input) + '<br>';
+    log.innerHTML += '🃏 computer: ' + convert_to_emoji(computer) + '<br>';
+
+    if (input === 0) {
+        if (computer === 2){
+            user_wins++;
+            user_wins_func();
+        } else if (computer === 1){
+            computer_wims++;
+            comp_wins();
+        } else {
+            tie()
+        }
+    } else if (input === 1) {
+        if (computer === 0){
+            user_wins++;
+            user_wins_func();
+        } else if (computer === 2){
+            computer_wims++;
+            comp_wins();
+        } else {
+            tie()
+        }
+    } else if (input === 2) {
+        if (computer ===1){
+            user_wins++;
+            user_wins_func();
+        } else if (computer === 0){
+            computer_wims++;
+            comp_wins();
+        } else {
+            tie()
+        }
+    } 
+    check_end();
+}
+
+// Aux funcs
+function comp_wins(){
+    log.innerHTML += 'Gana computadora <br>' + '<br>';
+    log.innerHTML += 'Jugador [' + user_wins + '] - [' + computer_wims + '] Maquinita <br>' + '<br>';
+}
+
+function user_wins_func(){
+    log.innerHTML += 'Gana PC <br>' + '<br>';
+    log.innerHTML += 'Jugador [' + user_wins + '] - [' + computer_wims + '] Maquinita <br>' + '<br>';
+}
+
+function tie() {
+    log.innerHTML += 'NO GANA NADIE  <br>' + '<br>';
+    log.innerHTML += 'Jugador [' + user_wins + '] - [' + computer_wims + '] Maquinita <br>' + '<br>';
+}
+
+function check_end(){
+    if (user_wins === max_wins || computer_wims === max_wins) {
+        log.innerHTML += 'Final del juego enhorabuena al campeón' + '<br>';
+        $('button').hide();
+        if (user_wins === max_wins){
+            log.innerHTML += 'El campeón eres tú, siéntete orgulloso/a' + '<br>';
+        } else{
+            log.innerHTML += 'Humillado por un computador, comienza la revolución' + '<br>';
+        }
+    }
+}
+
+function convert_to_emoji(input){
+    let emoji = '⚫';
+    if (input === 1) {
+        emoji = '📰';
+    } else if (input === 2){
+        emoji = '✂️';
+    }
+    return emoji;
+}
+
+// Button callback definition
+$('#piedra').mouseup(function () { 
+    main(0);
+});
+
+$('#papel').mouseup(function () { 
+    main(1);
+});
+
+$('#tijeras').mouseup(function () { 
+    main(2);
+});
+```
+
+### Resultado
+
+![image](https://user-images.githubusercontent.com/14235896/173028893-6d1c30be-0d1d-4e58-b3a4-9b419a04449a.png)
+![image](https://user-images.githubusercontent.com/14235896/173029009-05fde3cd-d02c-4d06-b3ed-d4a38c145c65.png)
+![image](https://user-images.githubusercontent.com/14235896/173029092-c7cc1677-b647-4a7a-8eae-ef86da69884d.png)
 
