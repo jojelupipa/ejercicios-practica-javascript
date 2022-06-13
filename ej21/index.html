@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="background_grid">
+        <div class="div1">
+            <div class="category_ui">
+                <div class="actions">
+                    <button class="food_button">🍦</button>
+                    <button class="food_button">🥕</button>
+                    <button class="food_button">🍖</button>
+                </div>
+                <div class="health_container">
+                    <div id="food_health" class="current_health"></div>
+                </div>
+                <p><span id="food_points">0</span>% full</p>
+                <p>EAT</p>
+            </div>
+        </div>
+        <div class="div2">
+            <div class="category_ui">
+                <div class="actions">
+                    <button class="play_button">🎮</button>
+                    <button class="play_button">🏉</button>
+                    <button class="play_button">♟️</button>
+                </div>
+                <div class="health_container">
+                    <div id="play_health" class="current_health"></div>
+                </div>
+                <p><span id="play_points">0</span>% full</p>
+                <p>PLAY</p>
+            </div>        </div>
+        <div class="div3">
+            <div class="category_ui">
+                <p>FIGHT</p>
+
+                <div class="actions">
+                    <button class="fight_button">✊</button>
+                    <button class="fight_button">🏃</button>
+                    
+                </div>
+                <div class="health_container">
+                    <div id="fight_health" class="current_health"></div>
+                </div>
+                <p><span id="fight_points">0</span>% full</p>
+            </div>
+        </div>
+        <div class="div4">
+            <p>SLEEP</p>
+                <div class="actions">
+                    <button class="sleep_button">🛌</button>
+                    <button class="sleep_button">🌙</button>
+                    
+                </div>
+                <div class="health_container">
+                    <div id="sleep_health" class="current_health"></div>
+                </div>
+                <p><span id="sleep_points">0</span>% full</p>
+            </div>
+        </div>
+    <div id="pet">
+        <p>Perico</p>
+        <img src="https://source.unsplash.com/random/150x150?pet" alt="">
+        <div class="health_container">
+            <div id="pet_health" class="current_health"></div>
+        </div>
+        <p><span id="health_points">0</span>% full</p>
+    </div>
+    </div>
+
+
+
+    <script src="./jquery-3.6.0.min.js"></script>
+    <script src="./code.js"></script>
+</body>
+</html>
