@@ -12,6 +12,8 @@
 
 - [Ejercicio 20](#ejercicio-20)
 
+- [Ejercicio 21](#ejercicio-21)
+
 ## Ejercicio 15
 
 ### Enunciado
@@ -561,3 +563,255 @@ $('#button').mousedown(function () {
 
 ![image](https://user-images.githubusercontent.com/14235896/173042167-aff99a9c-aaf4-45eb-9187-1c1bb12b994f.png)
 ![image](https://user-images.githubusercontent.com/14235896/173042223-651c3553-a82e-4ea9-81ab-6c800716b0a4.png)
+
+
+## Ejercicio 21
+
+### Enunciado
+
+![image](https://user-images.githubusercontent.com/14235896/173361815-4786893d-7a0f-4a44-b232-133fcb74ff96.png)
+
+### HTML
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="background_grid">
+        <div class="div1">
+            <div class="category_ui">
+                <div class="actions">
+                    <button class="food_button">🍦</button>
+                    <button class="food_button">🥕</button>
+                    <button class="food_button">🍖</button>
+                </div>
+                <div class="health_container">
+                    <div id="food_health" class="current_health"></div>
+                </div>
+                <p><span id="food_points">0</span>% full</p>
+                <p>EAT</p>
+            </div>
+        </div>
+        <div class="div2">
+            <div class="category_ui">
+                <div class="actions">
+                    <button class="play_button">🎮</button>
+                    <button class="play_button">🏉</button>
+                    <button class="play_button">♟️</button>
+                </div>
+                <div class="health_container">
+                    <div id="play_health" class="current_health"></div>
+                </div>
+                <p><span id="play_points">0</span>% full</p>
+                <p>PLAY</p>
+            </div>        </div>
+        <div class="div3">
+            <div class="category_ui">
+                <p>FIGHT</p>
+
+                <div class="actions">
+                    <button class="fight_button">✊</button>
+                    <button class="fight_button">🏃</button>
+                    
+                </div>
+                <div class="health_container">
+                    <div id="fight_health" class="current_health"></div>
+                </div>
+                <p><span id="fight_points">0</span>% full</p>
+            </div>
+        </div>
+        <div class="div4">
+            <p>SLEEP</p>
+                <div class="actions">
+                    <button class="sleep_button">🛌</button>
+                    <button class="sleep_button">🌙</button>
+                    
+                </div>
+                <div class="health_container">
+                    <div id="sleep_health" class="current_health"></div>
+                </div>
+                <p><span id="sleep_points">0</span>% full</p>
+            </div>
+        </div>
+    <div id="pet">
+        <p>Perico</p>
+        <img src="https://source.unsplash.com/random/150x150?pet" alt="">
+        <div class="health_container">
+            <div id="pet_health" class="current_health"></div>
+        </div>
+        <p><span id="health_points">0</span>% full</p>
+    </div>
+    </div>
+
+
+
+    <script src="./jquery-3.6.0.min.js"></script>
+    <script src="./code.js"></script>
+</body>
+</html>
+```
+
+### CSS
+
+```css
+#background_grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    height: 100vh;
+}
+
+.div1 { 
+    grid-area: 1 / 1 / 2 / 2; 
+    background-color: lightgreen;
+    color: darkgreen;
+}
+
+.div2 { 
+    grid-area: 1 / 2 / 2 / 3; 
+    background-color: lemonchiffon;
+    color: goldenrod;
+    text-align: right;
+}
+.div3 { 
+    grid-area: 2 / 1 / 3 / 2; 
+    background-color: lightcoral;
+    color: darkred;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.div4 { 
+    grid-area: 2 / 2 / 3 / 3; 
+    background-color: lightblue;
+    color: darkblue;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+#pet{
+    text-align: center;
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.health_container{
+    margin: 10px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 10px;
+    width: 90%;
+    background-color: black;
+    border-radius: 5px;
+}
+
+.current_health{
+    margin-left: 1%;
+    margin-right: 1%;
+    height: 5px;
+    background-color: lightgreen;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.category_ui{
+    margin: 2%;
+}
+```
+
+### JS
+
+```js
+let categories = ['food', 'play', 'fight', 'sleep'];
+
+function updater(category, points){
+
+
+    update_bar(bar_name);
+}
+
+function update_bar(bar_name){
+    //console.log(bar_name + '_points')
+    let points = $('#'  + bar_name + '_points').text();
+    
+    $('#' + bar_name + '_health').css(
+        'width',
+        points + '%'
+    );
+    
+    let total_hp = 0;
+    categories.forEach(el=> {
+        total_hp +=  Number($('#'  + el + '_points').text());
+    })
+    total_hp = total_hp / 4;
+    $('#pet_health').css(
+        'width',
+        total_hp + '%'
+    );
+    $('#health_points').text(total_hp);
+}
+
+categories.forEach(el => {
+    update_bar(el);
+});
+
+$('.food_button').mouseup(function () { 
+    let points = Number($('#food_points').text());
+    if (points >= 100) {
+        points = 100;
+    } else{
+        $('#food_points').text(points += 10); 
+    }
+    update_bar('food');
+});
+
+$('.play_button').mouseup(function () { 
+    let points = Number($('#play_points').text());
+    if (points >= 100) {
+        points = 100;
+    } else{
+        $('#play_points').text(points += 10); 
+    }
+    update_bar('play');
+});
+
+$('.fight_button').mouseup(function () { 
+    let points = Number($('#fight_points').text());
+    if (points >= 100) {
+        points = 100;
+    } else{
+        $('#fight_points').text(points += 10); 
+    }
+    update_bar('fight');
+});
+
+$('.sleep_button').mouseup(function () { 
+    let points = Number($('#sleep_points').text());
+    if (points >= 100) {
+        points = 100;
+    } else{
+        $('#sleep_points').text(points += 10); 
+    }
+    update_bar('sleep');
+});
+```
+
+### Resultado
+
+![image](https://user-images.githubusercontent.com/14235896/173363117-0e62086d-6229-44c7-b695-138509f3620a.png)
+
+![image](https://user-images.githubusercontent.com/14235896/173363225-cffdd1f4-d037-4ff7-8cde-08c765a973b7.png)
